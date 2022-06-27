@@ -1,0 +1,14 @@
+@function getRem($size) {
+    $remSize: $size / 16;
+    @return #{$remSize}rem;
+  }
+
+
+
+  .navbar {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2)!important;
+  }
+  .bg-dark{
+    background: linear-gradient(to left, rgba(89,239,176,0.4), rgba(2,32,68,0.4))!important;
+    background-color: rgba(0,0,0,1)!important;
+  }
