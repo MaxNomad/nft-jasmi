@@ -12,5 +12,7 @@
  * @default
  */
 export const ROUTES = {
-  root: "/"
+  root: "/",
+  item: "/item",
+  collection: "/collection"
 };

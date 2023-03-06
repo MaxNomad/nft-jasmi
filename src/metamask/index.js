@@ -27,7 +27,7 @@ const Metamask = () => {
         )
       } else {
         return (<div>
-              <button className="btn btn-box" onClick={() => removeCookie('selectedAddress')}>...{cookies.selectedAddress.slice(-6)}</button>
+              <button className="btn btn-box" onClick={() => removeCookie('selectedAddress')}>LogOut</button>
         </div>
   
         );

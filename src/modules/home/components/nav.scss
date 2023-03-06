@@ -9,6 +9,17 @@
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2)!important;
   }
   .bg-dark{
-    background: linear-gradient(to left, rgba(89,239,176,0.4), rgba(2,32,68,0.4))!important;
+    background: linear-gradient(to left, rgb(181 89 239 / 57%), rgb(68 2 54 / 58%));
     background-color: rgba(0,0,0,1)!important;
+  }
+  .navbar-brand img{
+    height: 50px;
+  }
+  .contact-links{
+    color: #c53daa;
+    transition: .3s;
+  }
+  .contact-links:hover{
+    color: #e44fc6;
+    transition: .3s;
   }

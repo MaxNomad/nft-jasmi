@@ -2,6 +2,7 @@ import React from "react";
 import "./nav.scss";
 import { useCookies } from 'react-cookie'
 import metamask_img from '../../../assets/images/metamask.png'
+import { Link } from "react-router-dom";
 
 const Wallet = () => {
     
@@ -9,7 +10,7 @@ const Wallet = () => {
 
     if (cookies.selectedAddress){
         return(
-            <div>
+            <>
 <div className="wallet-area section-padding-100-50">
                  <div className="container">
                    <div className="row">
@@ -23,21 +24,20 @@ const Wallet = () => {
                   
                        <div className="single-wallet-area two">
                          <div className="wallet-content-text">
-                           <h4><a href="#">NFT wallet is empty</a></h4>
-                           <p>consectetur adipisicing elit. Id quisquam, numquam ab deleniti
-                             ipsam fugiat.</p>
+                           <h4>NFT wallet is empty</h4>
+                           <p>View on the <a className="contact-links" href="#" target="_blank">marketplace.</a></p>
                          </div>
                        </div>
                      </div>
                  
                </div>
 
-            </div>
+            </>
         )
         
     }
     else{
-        return (<div>
+        return (<>
             <div className="wallet-area section-padding-100-50">
                  <div className="container">
                    <div className="row">
@@ -50,7 +50,7 @@ const Wallet = () => {
            
                    <div className="row">
            
-                     <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-duration="800">
+                     <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="800">
                        <div className="single-wallet-area two">
            
                          <div className="wallet-image">
@@ -60,14 +60,13 @@ const Wallet = () => {
            
                          <div className="wallet-content-text">
                            <h4><a href="#">Metamask</a></h4>
-                           <p>consectetur adipisicing elit. Id quisquam, numquam ab deleniti
-                             ipsam fugiat.</p>
+                           <p>MetaMask is a global community of developers and designers dedicated to making the world a better place with blockchain technology.</p>
                          </div>
                        </div>
                      </div>
            
            
-                     <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-duration="1000">
+                     <div className="col-md-6 col-lg-8" data-aos="fade-up" data-aos-duration="1000">
                        <div className="single-wallet-area two">
            
                          <div className="wallet-image">
@@ -76,53 +75,22 @@ const Wallet = () => {
            
            
                          <div className="wallet-content-text">
-                           <h4><a href="#">Bitski</a></h4>
-                           <p>consectetur adipisicing elit. Id quisquam, numquam ab deleniti
-                             ipsam fugiat.</p>
+                           <h4><a href="#">Picture shiping</a></h4>
+                           <p/><ul>
+                            <li>1) Connect your wallet to verify the ownership of NFT.</li>
+                             <li>2) Order delivery to any country in the world.</li>
+                             <li>3) If there is a problem, write to the <Link className="contact-links">contact center.</Link></li>
+                           </ul>
                          </div>
                        </div>
                      </div>
-           
-           
-                     <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-duration="1200">
-                       <div className="single-wallet-area two">
-           
-                         <div className="wallet-image">
-                           <img src="img/icon-img/18.png" alt="" />
-                         </div>
-           
-           
-                         <div className="wallet-content-text">
-                           <h4><a href="#">Fortmatic</a></h4>
-                           <p>consectetur adipisicing elit. Id quisquam, numquam ab deleniti
-                             ipsam fugiat.</p>
-                         </div>
-                       </div>
-                     </div>
-           
-           
-                     <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-duration="1400">
-                       <div className="single-wallet-area two">
-           
-                         <div className="wallet-image">
-                           <img src="img/icon-img/19.png" alt="" />
-                         </div>
-           
-           
-                         <div className="wallet-content-text">
-                           <h4><a href="#">Authereum</a></h4>
-                           <p>consectetur adipisicing elit. Id quisquam, numquam ab deleniti
-                             ipsam fugiat.</p>
-                         </div>
-                       </div>
-                     </div>
+        
            
                    </div>
                  </div>
                </div>
            
-           
-             </div>);
+             </>);
     }
   
   }

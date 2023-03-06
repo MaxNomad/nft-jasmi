@@ -8,15 +8,17 @@ import MetamaskBuy from '../../../metamask/getnft'
 
 
 const HomeSlider = () => {
-  return (<div>
+  return (<>
 <div className="welcome-area home-2 bg-overlay-3 bg-img">
       <div className="container h-100">
         <div className="row h-100 align-items-center justify-content-center">
           <div className="col-md-7">
             <div className="welcome-content home-2">
               <h3>Discover digital art  <span>collect NFT</span></h3>
-              <p> NFT Consulting, and Development Firm for every industry then NFT is the best NFT Marketplace
-                HTML5 Template to launch your website.</p>
+              <p> My inner world, Jasmi, is a realm that only a select few can understand.<br/>
+It is a place where colors, images, and flowers come into reality.<br/>
+I prefer anoint the palms of those around me with brushstrokes to open their souls to love.
+</p>
                 <MetamaskBuy/>
             </div>
           </div>
@@ -57,7 +59,7 @@ const HomeSlider = () => {
       </div>
 
     </div>
-  </div>);
+  </>);
   
 }
 

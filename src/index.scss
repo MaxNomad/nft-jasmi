@@ -188,8 +188,12 @@ body {
     font-size: 17px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.85);
-    background: linear-gradient(to left, #59efb0, #022044);
+    background: linear-gradient(to left, #560f97, #7c2a69);
     line-height: 1.7;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    transition: .3s;
 }
 
 
@@ -236,7 +240,7 @@ p {
 }
 
 .bg-color-cu {
-    background-color: #24595e;
+    background-color: #49225400;
 }
 
 img {
@@ -336,7 +340,7 @@ img {
 .bg-overlay::before {
     position: absolute;
     content: "";
-    background-color: #060826;
+    background-color: #2f1636;
     top: 0;
     left: 0;
     width: 100%;
@@ -353,7 +357,7 @@ img {
 .bg-overlay-2::before {
     position: absolute;
     content: "";
-    background-color: #161634;
+    background-color: #49225400;
     top: 0;
     left: 0;
     width: 100%;
@@ -444,7 +448,7 @@ img {
     font-size: 17px;
     font-weight: 400;
     color: #fff;
-    background-image: linear-gradient(to left top, #024f6c, #2f6976, #66badb);
+    //background-image: linear-gradient(to left top, #65026c, #9d48ab, #d74194);
     font-family: 'Montserrat', sans-serif;
     border: none;
     border-radius: 30px;
@@ -454,6 +458,18 @@ img {
     width: 170px;
     line-height: 50px;
     padding: 0;
+    background-image: linear-gradient(to left top, #6c024c, #9448ab, #41b9d7);
+    background-image: -moz-linear-gradient(to left top, #6c024c, #9448ab, #41b9d7);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff50abdf', endColorstr='#ff1f78aa', GradientType=0);
+    background-repeat: repeat-y;
+    background-size: 100% 90px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background-position: 0 -30px;
+    -webkit-transition: all 0.2s linear;
+       -moz-transition: all 0.2s linear;
+         -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
 }
 
 .btn-box::before {
@@ -470,15 +486,21 @@ img {
 }
 
 .btn-box:hover::before {
+
+    
+
+}
+
+.btn-box:hover {
+    color: #e2e2e2;
     opacity: 1;
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     transform: scale(1, 1);
+    box-shadow: 0px 15px 20px rgba(186, 46, 229, 0.199);
     font-weight: 400;
-}
-
-.btn-box:hover {
-    color: #c6f6f8;
+    background-position: 0 0;
+    
 }
 
 .btn.focus,
@@ -556,7 +578,7 @@ img {
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #0ea8b1;
+    color: #d6b9dd;
 }
 
 .heading-title {
@@ -598,7 +620,7 @@ img {
 
 .welcome-content.home-2 h3 span {
     -webkit-text-stroke-width: 1.9px;
-    -webkit-text-stroke-color: #0cb3bb;
+    -webkit-text-stroke-color: #df91ff;
     color: transparent;
     text-transform: uppercase;
     letter-spacing: 4.2px;
@@ -1521,7 +1543,7 @@ img {
 }
 
 .copy-right-content-text ul li a:hover {
-    color: #fd562a;
+    color: #bd3ca4;
 }
 
 .copy-right-area {
@@ -1553,14 +1575,14 @@ img {
 }
 
 .footer-single-widget ul li a:hover {
-    color: #fd562a;
+    color: #bd3ca4;
 }
 
 .footer-socila-icon a {
-    color: #fd562a;
+    color: #fa2afd;
     font-size: 16px;
     margin-right: 10px;
-    border: 1px solid rgba(253, 88, 42, 0.50);
+    border: 1px solid rgba(253, 42, 200, 0.5);
     height: 30px;
     width: 30px;
     display: inline-block;
@@ -1573,7 +1595,7 @@ img {
 }
 
 .footer-socila-icon a:hover {
-    background-color: #fd562a;
+    background-color: #bd3ca4;
     color: #fff;
 
 }
@@ -2462,7 +2484,7 @@ textarea.form-control {
 }
 
 .single-wallet-area {
-    background-color: #193e50;
+    background-color: #3f1950;
     padding: 60px 20px;
     border-radius: 20px;
     -webkit-transition-duration: 700ms;
@@ -2484,7 +2506,7 @@ textarea.form-control {
 }
 
 .wallet-content-text h4 a:hover {
-    color: #3a8e79;
+    color: #c797fd;
 }
 
 .wallet-content-text p {
@@ -2510,7 +2532,7 @@ textarea.form-control {
 }
 
 .single-wallet-area.two:hover {
-    border-left-color: #349682;
+    border-left-color: #643496;
 }
 
 /* Top Crypto Area Css */
