@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable jsx-a11y/alt-text */
+import React from "react";
 import { Pagination, EffectCoverflow } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Ex = () => {
+
     return (<>
         <div className="explore-area bg-color-cu section-padding-100-50">
             <div className="container-fluid">
@@ -20,12 +21,10 @@ const Ex = () => {
                                 <Swiper
                                     effect={"coverflow"}
                                     grabCursor={true}
-
                                     centeredSlides={true}
                                     slidesPerView={"auto"}
                                     margin={30}
                                     autoplay={true}
-
                                     loop={true}
                                     coverflowEffect={{
                                         rotate: 50,
@@ -34,11 +33,8 @@ const Ex = () => {
                                         modifier: 1,
                                         slideShadows: true,
                                     }}
-
-
                                     modules={[EffectCoverflow, Pagination]}
-                                    className="mySwiper"
-                                >
+                                    className="mySwiper">
                                     <SwiperSlide>
                                         <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
                                     </SwiperSlide>

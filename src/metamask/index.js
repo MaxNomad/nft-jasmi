@@ -1,47 +1,84 @@
-import React from 'react';
-import Row from 'react-bootstrap/Row'
-import Container from 'react-bootstrap/Container'
-import Col from 'react-bootstrap/Col'
+import React, { useState } from 'react';
 import { ethers } from "ethers";
+import MetaMaskOnboarding from "@metamask/onboarding";
 import { useCookies } from 'react-cookie'
-
+import Modal from 'react-bootstrap/Modal';
 
 const Metamask = () => {
+
+  const [logged, setLogged] = useState(false);
+  const [account, setAccount] = useState(null);
+  const forwarderOrigin = "http://localhost:3000";
+  const onboarding = new MetaMaskOnboarding({ forwarderOrigin });
+  const { utils } = require("ethers");
+  const [provider, setProvider] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(['selectedAddress', 'chain_id'])
+  const [show, setShow] = useState(false);
 
-  const connectToMetamask = async () => {
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const accounts = await provider.send("eth_requestAccounts", []);
-    console.log(provider.network)
-    setCookie('selectedAddress', accounts[0], { path: '/' })
-
+  const handleLogin = () => {
+    if (window.ethereum && window.ethereum.isMetaMask) {
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((result) => {
+          setLogged(true);
+          setAccount(utils.getAddress(result[0]));
+          setCookie('selectedAddress', result[0], { path: '/' })
+          setProvider(new ethers.providers.Web3Provider(window.ethereum));
+          setShow(false);
+        })
+        .catch((error) => {
+          console.log(`Could not detect Account: ${error}`);
+        });
+    } else {
+      onboarding.startOnboarding();
+    }
+    
+  };
+  const handleLogOut = () => {
+    removeCookie('selectedAddress');
+    setLogged(false);
+    setShow(false);
+    setAccount(null);
+    setProvider(null);
   }
   const renderMetamask = () => {
     if (typeof window.ethereum == 'undefined') {
-      return(<button className="btn btn-box" onClick={()=> window.open("https://metamask.io/", "_blank")}>Install wallet</button>)
-    }else{
-      if (!cookies.selectedAddress) {
+      return (<button className="btn btn-box" onClick={() => window.open("https://metamask.io/", "_blank")}>Install wallet</button>)
+    } else {
+      if (!cookies.selectedAddress && !logged && !provider && !account) {
         return (
-          <button className="btn btn-box" onClick={() => connectToMetamask()}>Connect wallet</button>
+          <button className="btn btn-box" onClick={() => handleLogin()}>Connect wallet</button>
         )
       } else {
         return (<div>
-              <button className="btn btn-box" onClick={() => removeCookie('selectedAddress')}>LogOut</button>
+          <button className="btn btn-box" onClick={() => handleShow() }>LogOut</button>
+          <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Log Out</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">Are you sure you want to log-off?</Modal.Body>
+        <Modal.Footer className="justify-content-center">
+        <button className="btn btn-box" onClick={handleClose}>
+        Cancel
+          </button>
+          <button className="btn btn-box" onClick={handleLogOut}>
+            LogOut
+          </button>
+        </Modal.Footer>
+      </Modal>
         </div>
-  
         );
       }
     }
-   
   }
-
   return (
     <div>
       {renderMetamask()}
     </div>
   )
 }
-
 
 export default Metamask;

@@ -1,51 +1,46 @@
-import React from 'react';
-import Row from 'react-bootstrap/Row'
-import Container from 'react-bootstrap/Container'
-import Col from 'react-bootstrap/Col'
-import { ethers } from "ethers";
+import React, { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie'
 
 
 const MetamaskBuy = () => {
-  const [cookies, setCookie] = useCookies(['selectedAddress', 'chain_id'])
+  const [cookies] = useCookies()
+  const ethers = require("ethers");
+  const [data, setData] = useState([]);
+  const [isLoaded, setLoad] = useState(false);
 
-  const connectToMetamask = async () => {
+  const fetchCollection = () => {
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const accounts = await provider.send("eth_requestAccounts", []);
-    console.log(provider.network)
-    setCookie('selectedAddress', accounts[0], { path: '/' })
+    const provider = new ethers.providers.JsonRpcProvider("https://nameless-bitter-emerald.discover.quiknode.pro/3cbfd1794564a54c494f01f9c3d2008ed88860c5/");
+    const collection = provider.send("qn_verifyNFTsOwner", [
+      cookies.selectedAddress,
+      [
+        "0x495f947276749ce646f68ac8c248420045cb7b5e:36986146263609158180263344970690400670243693463513697420360993451393377370113"
+      ],]
 
+    )
+    return collection
   }
-  const renderMetamask = () => {
-    if (typeof window.ethereum == 'undefined') {
-        return(<button className="btn btn-box" onClick={()=> window.open("https://metamask.io/", "_blank")}>Install wallet</button>)
-      }else{
-    if (!cookies.selectedAddress) {
-      return (
-        <button className="btn btn-box" onClick={() => connectToMetamask()}>Connect wallet</button>
-      )
+
+  useEffect(() => {
+    if (cookies.selectedAddress !== undefined) {
+      fetchCollection()
+        .then(data => {
+          setLoad(true)
+          setData(data?.assets)
+        })
+        .catch(err => setData([]))
     } else {
-      return (<div>
-
-        
-       
-            <p>You don`t own any nft`s</p>
-            <p><button className="btn btn-box"> Buy NFT`s</button></p> 
-  
-      
-
-      </div>
-
-      );
+      setData([])
     }
-  }
-}
-
+  }, [cookies.selectedAddress]);
+  console.log(data, 34)
+  console.log(cookies.selectedAddress, 35)
   return (
-    <div>
-      {renderMetamask()}
-    </div>
+    <>
+      {!cookies.selectedAddress ? <p>Wallet is not connected.</p> : <p>Wallet connected.<br />Using : {cookies.selectedAddress}</p>}
+      {data.length > 0 ? <p><button className="btn btn-box">CheckOut</button>{cookies.selectedAddress ? <button className="btn btn-box check-again">Check again</button> : ""}</p> : <p><a href='#' target="_blank"><button className="btn btn-box">Buy NFT`s</button></a>{cookies.selectedAddress ? <button className="btn btn-box check-again">Check again</button> : ""}</p>}
+      
+    </>
   )
 }
 

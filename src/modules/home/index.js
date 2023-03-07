@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
-import "./index.scss";
 import AOS from "aos";
-import HomeSlider from "./components/homeslider";
-import Wallet from "./components/wallet";
-import NFTCollections from "./components/nftCollections";
-import About from "./components/about";
 
+import HomeSlider from "./components/HomeSlider";
+import Wallet from "./components/Wallet";
+import NFTCollections from "../../components/NFTCollections";
+import About from "./components/About";
 
+import "./index.scss";
 
 /**
  * @desc Module "Home page".

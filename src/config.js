@@ -16,3 +16,9 @@ export const ROUTES = {
   item: "/item",
   collection: "/collection"
 };
+
+export const GLOBAL_BARS = {
+  root: "/",
+  item: "/item",
+  collection: "/collection"
+};

@@ -84,14 +84,25 @@
     z-index: 9000;
     background-color: #0f0826;
 }
-
+.explore-btn{
+    width: 200px!important;
+}
+.header-large{
+    font-size: 50px!important;
+}
 .loader {
     width: 110px;
     height: 90px;
     margin: 50px auto 0;
     position: relative;
 }
+.check-again{
+    margin-left: 40px;
+}
+.modal-content {
+    background-color: #3f1a50;
 
+}
 .loader span {
     background-image: -o-linear-gradient(right bottom, #fd562a, rgba(211, 40, 83, 0.70), rgba(148, 31, 95, 0.80), #4f2155, #161634);
     background-image: -webkit-gradient(linear, right bottom, left top, from(#fd562a), color-stop(rgba(211, 40, 83, 0.70)), color-stop(rgba(148, 31, 95, 0.80)), color-stop(#4f2155), to(#161634));
@@ -190,10 +201,7 @@ body {
     color: rgba(255, 255, 255, 0.85);
     background: linear-gradient(to left, #560f97, #7c2a69);
     line-height: 1.7;
-    -webkit-transition-duration: 500ms;
-    -o-transition-duration: 500ms;
-    transition-duration: 500ms;
-    transition: .3s;
+    overflow:auto;
 }
 
 
@@ -272,11 +280,22 @@ img {
     padding-top: 200px;
     padding-bottom: 200px;
 }
-
+@media all and (max-width:1024px){
+    .section-padding-100-50-custom {
+        padding-top: 200px!important;
+        padding-bottom: 50px!important;
+    }
+  }
+  .section-padding-100-50-custom {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
 .section-padding-100-50 {
     padding-top: 100px;
     padding-bottom: 50px;
 }
+  
+
 
 .section-padding-100 {
     padding-top: 100px;
